@@ -1,0 +1,49 @@
+#!/bin/bash
+
+cd ../../
+
+BASE_DIR=$PWD
+echo $BASE_DIR
+
+EXPERIMENT_DIR=test_boat/
+mkdir "$BASE_DIR"/active_learning_dir/"$EXPERIMENT_DIR"
+
+
+python active_learning_main.py \
+--budget_measured_in_objects False \
+--rescaled_foreground_probs True \
+--sample_select_nms_conf_thresh 0.01 \
+--skip_sample_selection_first_iter False \
+--batch_size 8 \
+--sampling_strategy none_covariance-obj \
+--merging_method pre_nms_avg \
+--lr 1e-4 \
+--ensemble_size 3 \
+--annotate_all_objects True \
+--experiment_dir "$EXPERIMENT_DIR" \
+--train_from_basenet_every_iter True \
+--paths_to_weights \
+weights/initial_net_0 \
+weights/initial_net_1 \
+weights/initial_net_2 \
+--trained_models \
+weights/initial_net_0 \
+weights/initial_net_1 \
+weights/initial_net_2 \
+--samples_per_iter 10 10 10 10 10 \
+--eval_every_iter False \
+--debug False \
+--fixed_number_of_epochs 200 \
+--seed 92 \
+--dataset VOC07_1_class \
+--imageset_train boat_trainval_detect \
+--imageset_test boat_test_detect \
+--seed_set_file data/boat_seed_set.json \
+--optimizer SGD \
+--skip_sample_selection_first_iter False \
+--relevant_class boat \
+
+
+wait
+
+echo end of job

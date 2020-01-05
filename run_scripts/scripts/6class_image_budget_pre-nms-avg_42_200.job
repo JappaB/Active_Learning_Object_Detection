@@ -1,0 +1,49 @@
+#!/bin/bash
+
+cd ../../
+
+BASE_DIR=$PWD
+echo $BASE_DIR
+
+EXPERIMENT_DIR=test_6class/
+mkdir "$BASE_DIR"/active_learning_dir/"$EXPERIMENT_DIR"
+
+
+python active_learning_main.py \
+--budget_measured_in_objects False \
+--rescaled_foreground_probs True \
+--sample_select_nms_conf_thresh 0.01 \
+--skip_sample_selection_first_iter False \
+--batch_size 8 \
+--sampling_strategy none_covariance-obj \
+--merging_method pre_nms_avg \
+--lr 1e-4 \
+--ensemble_size 6 \
+--annotate_all_objects True \
+--experiment_dir "$EXPERIMENT_DIR" \
+--train_from_basenet_every_iter True \
+--paths_to_weights \
+weights/initial_net_0 \
+weights/initial_net_1 \
+weights/initial_net_2 \
+--trained_models \
+weights/initial_net_0 \
+weights/initial_net_1 \
+weights/initial_net_2 \
+--samples_per_iter 25 25 25 25 25 25 \
+--eval_every_iter True \
+--debug False \
+--short_gpu False \
+--fixed_number_of_epochs 200 \
+--seed 42 \
+--dataset VOC07_6_class \
+--imageset_train 6_class_trainval_detect \
+--imageset_test 6_class_test_detect \
+--seed_set_file data/6_class_seed_set.json \
+--optimizer SGD \
+--skip_sample_selection_first_iter False
+
+
+wait
+
+echo end of job
