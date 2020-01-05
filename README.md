@@ -3,7 +3,7 @@ In this repo the code belonging to my master thesis titled: "Active Learning for
 
 As a basis for my repository I used the excellent repository by Max de Groot and Ellis Brown [PyTorch implementation of the SSD detector](https://github.com/amdegroot/ssd.pytorch), retrieved on 19-02-2019. However, as I used the then newest stable version of PyTorch (1.0.1), I did change some of their code to be able to run it. Note that their repo is probably more suitable if you just want to use an SSD written in PyTorch and don't want to perform acive learning. Some parts of this readme are directly copy-pasted from Max de Groot and Ellis Brown their repo as my work is built upon their code anyways.
 
-After finishing my thesis, in order to make it more useable for others, I cleaned the code a bit and wrote this readme. I hope this helps, however, bear in mind that the code is research code and should be viewed as such.
+After finishing my thesis, in order to make it more useable for others, I cleaned the code a bit and wrote this readme. I hope this helps, however, bear in mind that the code is research code and should be viewed as such. Currently I'm traveling trough Central and South America. I know the code is still not very beautiful, please post issues if you are serious about using it and I'll see what I can do when I'm back.
 
 
 ### Table of Contents
