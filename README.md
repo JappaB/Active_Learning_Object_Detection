@@ -29,7 +29,7 @@ A [PyTorch](http://pytorch.org/) implementation of [Single Shot MultiBox Detecto
 - Clone this repository.
 - Then download the dataset by following the [instructions](#datasets) below. Note that the Active Learning code has only been completely implemented for the Pascal VOC 2007 dataset.
 - As the SSD uses a reduced VGG-16 backbone, download the fc-reduced [VGG-16](https://arxiv.org/abs/1409.1556) PyTorch base network weights at:	https://s3.amazonaws.com/amdegroot-models/vgg16_reducedfc.pth and put them in a directory called 'weights'
-- By default, we assume you have downloaded the file in the `Thesis_Active_Learning_Object_detection/weights` dir:
+- By default, we assume you have downloaded the file in the `Active_Learning_Object_detection/weights` dir:
 
 ```Shell
 mkdir weights
